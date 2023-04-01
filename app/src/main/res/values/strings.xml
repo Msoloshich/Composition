@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Composition</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_fragment_title">Number Composition</string>
+    <string name="welcome_fragment_rules">Rules of the game: you will see 3 pieces, 2 on the bottom and 1 on the top, two of them will have numbers. You must substitute a number in the missing figure so that the sum of the lower numbers equals the number from the top figure.</string>
+    <string name="welcome_fragment_example">Example: In the upper circle is the number 7. In one of the lower squares is the number 3, in the other is a question mark. This means that the number 4 should be in place of the question mark, because 3 + 4 = 7</string>
+    <string name="welcome_fragment_button">Understood</string>
+    <string name="choose_level_fragment_title">Choose level:</string>
+    <string name="choose_level_fragment_button_test">Test</string>
+    <string name="choose_level_fragment_button_easy">Easy</string>
+    <string name="choose_level_fragment_button_medium">Medium</string>
+    <string name="choose_level_fragment_button_hard">Hard</string>
+    <string name="game_fragment_timer_default">00:00</string>
+    <string name="question_mark">\?</string>
+    <string name="progress_answers">Right answers is %s (min %s)</string>
+    <string name="game_finished_fragment_required_answers_count" >Required number of correct answers: %s</string>
+    <string name="game_finished_fragment_your_score" >Your score: %s</string>
+    <string name="game_finished_fragment_required_answers_percentage" >Required percentage of correct answers: %s</string>
+    <string name="game_finished_fragment_your_answers_percentage" >Your percentage of correct answers: %s</string>
+    <string name="game_finished_fragment_again" >Again</string>
 </resources>
