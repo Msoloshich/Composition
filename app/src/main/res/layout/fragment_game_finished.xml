@@ -73,6 +73,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="@string/game_finished_fragment_again"
+        android:layout_margin="16sp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

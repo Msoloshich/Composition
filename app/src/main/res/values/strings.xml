@@ -8,7 +8,7 @@
     <string name="choose_level_fragment_title">Choose level:</string>
     <string name="choose_level_fragment_button_test">Test</string>
     <string name="choose_level_fragment_button_easy">Easy</string>
-    <string name="choose_level_fragment_button_medium">Medium</string>
+    <string name="choose_level_fragment_button_normal">Normal</string>
     <string name="choose_level_fragment_button_hard">Hard</string>
     <string name="game_fragment_timer_default">00:00</string>
     <string name="question_mark">\?</string>
