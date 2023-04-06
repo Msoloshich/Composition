@@ -4,7 +4,7 @@ import com.example.composition.domain.entity.GameSettings
 import com.example.composition.domain.entity.Level
 import com.example.composition.domain.repository.GameRepository
 
-class NewGameSettingsUseCase(
+class GetGameSettingsUseCase(
     private val gameRepository: GameRepository
 ) {
 
