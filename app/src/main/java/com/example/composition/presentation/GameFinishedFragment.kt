@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.example.composition.R
 import com.example.composition.databinding.FragmentGameFinishedBinding
 import com.example.composition.domain.entity.GameResult
 
@@ -31,11 +32,50 @@ class GameFinishedFragment : Fragment() {
             }
 
         }
+        parseGameResult()
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
 
         binding.buttonRetry.setOnClickListener {
             retryGame()
         }
+    }
+
+    private fun parseGameResult() {
+        setResultImage()
+        setResultTexts()
+    }
+
+    private fun setResultImage() {
+        if (gameResult.winner) {
+            binding.emojiResult.setImageResource(R.drawable.ic_smile)
+        } else {
+            binding.emojiResult.setImageResource(R.drawable.ic_sad)
+        }
+    }
+
+    private fun setResultTexts() {
+        with(binding) {
+            tvRequiredAnswers.text = String.format(
+                getString(R.string.game_finished_fragment_required_answers_count),
+                gameResult.gameSettings.minCountOfRightAnswers
+            )
+            tvRequiredPercentage.text = String.format(
+                getString(R.string.game_finished_fragment_required_answers_percentage),
+                gameResult.gameSettings.minPercentOfRightAnswers
+            )
+            tvScoreAnswers.text = String.format(
+                getString(R.string.game_finished_fragment_your_score),
+                gameResult.countOfRightAnswers
+            )
+            tvScorePercentage.text = String.format(
+                getString(R.string.game_finished_fragment_your_answers_percentage),
+                getPercentage()
+            )
+        }
+    }
+
+    private fun getPercentage(): Int {
+        return gameResult.countOfRightAnswers * 100 / gameResult.countOfQuestions
     }
 
     private fun retryGame() {
