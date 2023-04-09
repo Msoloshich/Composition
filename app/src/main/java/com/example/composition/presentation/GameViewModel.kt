@@ -2,6 +2,7 @@ package com.example.composition.presentation
 
 import android.app.Application
 import android.os.CountDownTimer
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -63,10 +64,11 @@ class GameViewModel(application: Application): AndroidViewModel(application) {
     private val generateQuestionUseCase = GenerateQuestionUseCase(repository)
     private val getGameSettingsUseCase = GetGameSettingsUseCase(repository)
 
-    private fun startGame(level: Level) {
+    fun startGame(level: Level) {
         getGameSettings(level)
         startTimer()
         generateQuestion()
+        updateProgress()
     }
 
     fun chooseAnswer(number: Int) {
@@ -78,16 +80,19 @@ class GameViewModel(application: Application): AndroidViewModel(application) {
     private fun updateProgress() {
         val percent = calculatePercentOfRightAnswers()
         _percentOfRightAnswers.value = percent
-        _progressAnswers.value = String().format(
+        _progressAnswers.value = String.format(
             context.resources.getString(R.string.progress_answers),
-            countOfRightAnswers,
-            gameSettings.mixCountOfRightAnswers
+            countOfRightAnswers.toString(),
+            gameSettings.mixCountOfRightAnswers.toString()
         )
         _enoughCount.value = countOfRightAnswers >= gameSettings.mixCountOfRightAnswers
         _enoughPercent.value = percent >= gameSettings.minPercentOfRightAnswers
     }
 
     private fun calculatePercentOfRightAnswers(): Int {
+        if(countOfQuestions == 0) {
+            return 0
+        }
         return ((countOfRightAnswers / countOfQuestions.toDouble()) * 100).toInt()
     }
 
