@@ -1,4 +1,4 @@
-package com.example.composition.presentation
+package com.example.composition.presentation.bindingAdapters
 
 import android.widget.ImageView
 import android.widget.TextView
